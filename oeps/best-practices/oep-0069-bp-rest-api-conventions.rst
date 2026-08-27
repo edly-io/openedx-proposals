@@ -1,15 +1,15 @@
-.. _OEP-69 Open edX REST API Conventions:
+.. _OEP-69 REST API Conventions:
 
-OEP-69: Open edX REST API Conventions
-#####################################
+OEP-69: REST API Conventions
+############################
 
 .. list-table::
    :widths: 25 75
 
    * - OEP
-     - :ref:`OEP-69 <OEP-69 Open edX REST API Conventions>`
+     - :ref:`OEP-69 <OEP-69 REST API Conventions>`
    * - Title
-     - Open edX REST API Conventions
+     - REST API Conventions
    * - Last Modified
      - 2026-07-06
    * - Authors
@@ -64,7 +64,7 @@ conventions for the Open edX community.
 Motivation
 **********
 
-This effort proposes to standardize Open edX APIs in a practical and incremental
+This effort proposes to standardize APIs in a practical and incremental
 way. The intent is **not** to redesign the entire platform or introduce breaking
 changes unnecessarily, but to establish clear, shared patterns for how APIs should
 be built going forward, while gradually improving existing endpoints. By aligning
@@ -133,7 +133,7 @@ Convention 1: Use DRF serializers for all request and response handling
 
 *Source:* `ADR 0025: Standardize Serializer Usage Across APIs <https://github.com/openedx/openedx-platform/blob/master/docs/decisions/0025-standardize-serializer-usage.rst>`__ (`code example <https://github.com/openedx/openedx-platform/blob/master/docs/decisions/0025-standardize-serializer-usage.rst#code-example-target-serializer-usage>`__).
 
-All Open edX REST APIs **MUST** use DRF serializers for request and response handling
+All REST APIs **MUST** use DRF serializers for request and response handling
 rather than hand-constructing JSON.
 
 * API views **MUST** define explicit serializers for request and response
@@ -300,7 +300,7 @@ Convention 5: Use DRF ``permission_classes`` as the authorization surface
 
 *Source:* `ADR 0026: Standardize Permission Classes Across APIs <https://github.com/openedx/openedx-platform/blob/master/docs/decisions/0026-standardize-permission-classes.rst>`__ (`code example <https://github.com/openedx/openedx-platform/blob/master/docs/decisions/0026-standardize-permission-classes.rst#code-example-target-permission-usage>`__). See also :ref:`OEP-66 User Authorization`.
 
-All Open edX REST APIs **MUST** use DRF ``permission_classes`` as the primary
+All REST APIs **MUST** use DRF ``permission_classes`` as the primary
 authorization surface, replacing custom decorators and inline role checks.
 
 * Create reusable permission classes for common patterns (course staff, global
@@ -480,7 +480,7 @@ Convention 11: Document every endpoint with ``drf-spectacular`` (OpenAPI 3.x)
 
 *Source:* `ADR 0027: Standardize API Documentation & Schema Coverage <https://github.com/openedx/openedx-platform/blob/master/docs/decisions/0027-standardize-api-documentation-and-schema-coverage.rst>`__ (`code example <https://github.com/openedx/openedx-platform/blob/master/docs/decisions/0027-standardize-api-documentation-and-schema-coverage.rst#code-example-target-documentation-usage>`__).
 
-All Open edX REST APIs **MUST** use ``drf-spectacular`` with ``@extend_schema`` for
+All REST APIs **MUST** use ``drf-spectacular`` with ``@extend_schema`` for
 complete, machine-readable OpenAPI 3.x documentation.
 
 * Every endpoint **MUST** document request/response schemas, status codes, and
@@ -596,7 +596,7 @@ be reasoned about, reviewed, and merged against the code it affected. That
 granularity was valuable during authoring but, as community reviewers observed,
 made the overall picture hard to follow: "a bit confusing as to what info is found
 in which ADR." Consolidating them into a single OEP gives contributors and external
-integrators one authoritative reference for "how Open edX REST APIs should look,"
+integrators one authoritative reference for "how REST APIs should look,"
 while the per-decision ADRs remain in ``openedx-platform`` next to the code as the
 detailed record.
 
